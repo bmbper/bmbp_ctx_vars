@@ -22,11 +22,35 @@ impl BmbpContextVars {
         let value_string = value.to_string();
         self.data.write().unwrap().insert(key, value_string);
     }
-    pub fn get_value(&self, key: String) -> String {
-        if let Some(v) = self.data.read().unwrap().get(&key) {
+    pub fn get_value<T>(&self, key: T) -> String
+    where
+        T: ToString,
+    {
+        if let Some(v) = self.data.read().unwrap().get(&key.to_string()) {
             v.to_string()
         } else {
             "".to_string()
+        }
+    }
+}
+
+pub enum ContexVars {
+    AppCode,
+    AppName,
+    AppNavName,
+    AppLoginName,
+    AppCopyRight,
+    AppIconPath,
+}
+impl ToString for ContexVars {
+    fn to_string(&self) -> String {
+        match self {
+            ContexVars::AppCode => "AppCode".to_string(),
+            ContexVars::AppName => "AppName".to_string(),
+            ContexVars::AppNavName => "AppNavName".to_string(),
+            ContexVars::AppLoginName => "AppLoginName".to_string(),
+            ContexVars::AppCopyRight => "AppCopyRight".to_string(),
+            ContexVars::AppIconPath => "AppIconPath".to_string(),
         }
     }
 }
