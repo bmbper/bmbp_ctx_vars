@@ -1,0 +1,12 @@
+[package]
+name = "bmbp_ctx_vars"
+version = "0.1.0"
+edition = "2021"
+authors = ["bmbp<rs_bmbp.163.com>"]
+description = "BMBP TERA CONTEXT VARS"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/bmbper/bmbp_ctx_vars"
+repository = "https://github.com/bmbper/bmbp_ctx_vars"
+documentation = "https://github.com/bmbper/bmbp_ctx_vars"
+[dependencies]
